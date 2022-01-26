@@ -22,12 +22,12 @@ public class DemoApplication {
 		
 		try{
             Connection c = DriverManager.getConnection(
-			    "jdbc:postgresql://localhost:5432/regedb",
-        	    "duce", "Th3Dem0Hou$e"
+			    "jdbc:postgresql://localhost:5432/rce",
+        	    "postgres", "mysecretpassword"
 			);
 
             System.out.println(
-                "\nConnected to regedb.\n"
+                "\nConnected to RCE.\n"
                 );
 
             Database database = DatabaseFactory.getInstance()
@@ -53,8 +53,9 @@ public class DemoApplication {
             sqlEx.printStackTrace();
         } catch( java.lang.Exception lEx ){
             lEx.printStackTrace();
-        } 
+        }
 		
+        
 		SpringApplication.run(DemoApplication.class, args);
 
 	}
