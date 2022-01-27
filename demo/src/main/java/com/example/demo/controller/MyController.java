@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Applicant;
 import com.example.demo.model.City;
+import com.example.demo.service.IApplicantService;
 import com.example.demo.service.ICityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,5 +25,18 @@ public class MyController {
         model.addAttribute("cities", cities);
 
         return "showCities";
+    }
+
+    @Autowired
+    private IApplicantService applicantService;
+
+    @GetMapping("/showApplicants")
+    public String findApplicants(Model model) {
+
+        var applicants = (List<Applicant>) applicantService.findAll();
+
+        model.addAttribute("APPLICANTS", applicants);
+
+        return "showApplicants";
     }
 };
